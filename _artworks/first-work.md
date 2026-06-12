@@ -4,7 +4,7 @@ date: 2026-06-12
 year: "2026"
 medium: Mixed media
 dimensions: 60 x 80 cm
-image: assets/uploads/img_4188.jpeg
+image: assets/uploads/img_4199.jpeg
 tags:
   - studio
 ---
