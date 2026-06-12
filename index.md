@@ -2,7 +2,7 @@
 layout: home
 title: Home
 eyebrow: Portfolio / Journal
-headline: Rozina (Rosie)
+headline: Rozina (a.k.a Rosie)
 intro: Black-and-white portfolio and journal for studio work, exhibitions,
   process notes, and new writing.
 featured_image: assets/uploads/artwork-placeholder.svg
