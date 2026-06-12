@@ -1,10 +1,10 @@
 ---
-title: "First Work"
+title: First Work
 date: 2026-06-12
 year: "2026"
-medium: "Mixed media"
-dimensions: "60 x 80 cm"
-image: "assets/uploads/artwork-placeholder.svg"
+medium: Mixed media
+dimensions: 60 x 80 cm
+image: assets/uploads/img_4188.jpeg
 tags:
   - studio
 ---
