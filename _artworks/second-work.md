@@ -1,5 +1,5 @@
 ---
-title: Second Work
+title: Tibitabu times
 date: 2026-06-12
 year: "2026"
 medium: Mixed media
