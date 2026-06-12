@@ -58,10 +58,10 @@ That means Decap CMS writes new posts, artwork entries, and uploads back to your
 
 ## After connecting your domain
 
-In `admin/config.yml`, replace:
+In `admin/config.yml`, replace the default Netlify preview domain later if you add a custom domain:
 
 ```text
-https://YOUR-DOMAIN.com
+https://sunny-seahorse-301815.netlify.app/
 ```
 
-with your real Netlify or custom domain.
+Use your real custom domain once it is connected.

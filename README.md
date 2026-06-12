@@ -38,11 +38,11 @@ The CMS lives at:
 
 This starter uses Decap CMS with Netlify Git Gateway. Once Netlify Identity and Git Gateway are enabled, edits from `/admin/` are committed to the private repository and the site rebuilds.
 
-In `admin/config.yml`, replace:
+In `admin/config.yml`, replace the default Netlify preview domain later if you add a custom domain:
 
 `https://YOUR-DOMAIN.com`
 
-with your real Netlify or custom domain.
+The current value is `https://sunny-seahorse-301815.netlify.app/`.
 
 ## Local preview
 

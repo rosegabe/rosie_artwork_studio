@@ -1,0 +1,18 @@
+site_name: "Artist Portfolio"
+site_description: "Artwork, notes, exhibitions, and studio writing."
+header_links:
+  - label: "Art"
+    url: "/art/"
+  - label: "Blog"
+    url: "/blog/"
+  - label: "About"
+    url: "/about/"
+  - label: "Contact"
+    url: "/contact/"
+footer_text: "All rights reserved."
+footer_links:
+  - label: "Instagram"
+    url: "https://instagram.com/yourhandle"
+  - label: "Email"
+    url: "mailto:email@example.com"
+show_cms_login: true

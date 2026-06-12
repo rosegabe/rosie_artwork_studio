@@ -1,4 +1,17 @@
 <footer class="site-footer">
-  <p>&copy; {{ "now" | date: "%Y" }} {{ site.title }}. All rights reserved.</p>
-  <a href="{{ '/admin/' | relative_url }}">CMS login</a>
+  {% assign settings = site.data.settings %}
+  <p>&copy; {{ "now" | date: "%Y" }} {{ settings.site_name | default: site.title }}. {{ settings.footer_text }}</p>
+  <nav class="footer-nav" aria-label="Footer navigation">
+    {% for link in settings.footer_links %}
+      {% assign link_prefix = link.url | slice: 0, 4 %}
+      {% if link_prefix == "http" or link.url contains "mailto:" %}
+        <a href="{{ link.url }}">{{ link.label }}</a>
+      {% else %}
+        <a href="{{ link.url | relative_url }}">{{ link.label }}</a>
+      {% endif %}
+    {% endfor %}
+    {% if settings.show_cms_login %}
+      <a href="{{ '/admin/' | relative_url }}">CMS login</a>
+    {% endif %}
+  </nav>
 </footer>

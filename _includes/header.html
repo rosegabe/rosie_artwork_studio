@@ -1,9 +1,14 @@
 <header class="site-header">
-  <a class="brand" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+  {% assign settings = site.data.settings %}
+  <a class="brand" href="{{ '/' | relative_url }}">{{ settings.site_name | default: site.title }}</a>
   <nav class="nav" aria-label="Primary navigation">
-    <a href="{{ '/art/' | relative_url }}">Art</a>
-    <a href="{{ '/blog/' | relative_url }}">Blog</a>
-    <a href="{{ '/about/' | relative_url }}">About</a>
-    <a href="{{ '/contact/' | relative_url }}">Contact</a>
+    {% for link in settings.header_links %}
+      {% assign link_prefix = link.url | slice: 0, 4 %}
+      {% if link_prefix == "http" or link.url contains "mailto:" %}
+        <a href="{{ link.url }}">{{ link.label }}</a>
+      {% else %}
+        <a href="{{ link.url | relative_url }}">{{ link.label }}</a>
+      {% endif %}
+    {% endfor %}
   </nav>
 </header>

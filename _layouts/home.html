@@ -4,9 +4,17 @@ layout: default
 
 <section class="hero">
   <div class="hero-copy">
-    <p class="eyebrow">Portfolio / Journal</p>
+    {% if page.eyebrow %}<p class="eyebrow">{{ page.eyebrow }}</p>{% endif %}
     <h1>{{ page.headline }}</h1>
     <p>{{ page.intro }}</p>
+    {% if page.button_text and page.button_url %}
+      {% assign button_prefix = page.button_url | slice: 0, 4 %}
+      {% if button_prefix == "http" or page.button_url contains "mailto:" %}
+        <a class="button-link" href="{{ page.button_url }}">{{ page.button_text }}</a>
+      {% else %}
+        <a class="button-link" href="{{ page.button_url | relative_url }}">{{ page.button_text }}</a>
+      {% endif %}
+    {% endif %}
   </div>
   {% if page.featured_image %}
     <img class="hero-image" src="{{ page.featured_image | relative_url }}" alt="">
@@ -15,7 +23,7 @@ layout: default
 
 <section class="section-grid">
   <div>
-    <p class="section-label">Recent Artwork</p>
+    <p class="section-label">{{ page.art_section_label | default: "Recent Artwork" }}</p>
     <div class="art-grid compact">
       {% assign recent_art = site.artworks | sort: "date" | reverse | slice: 0, 3 %}
       {% for item in recent_art %}
@@ -29,7 +37,7 @@ layout: default
     </div>
   </div>
   <div>
-    <p class="section-label">Latest Writing</p>
+    <p class="section-label">{{ page.blog_section_label | default: "Latest Writing" }}</p>
     <div class="post-list">
       {% for post in site.posts limit: 3 %}
         <a class="post-link" href="{{ post.url | relative_url }}">

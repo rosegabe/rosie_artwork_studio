@@ -1,10 +1,11 @@
 <!doctype html>
 <html lang="en">
   <head>
+    {% assign settings = site.data.settings %}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="{{ page.description | default: site.description }}">
-    <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+    <meta name="description" content="{{ page.description | default: settings.site_description | default: site.description }}">
+    <title>{% if page.title %}{{ page.title }} | {% endif %}{{ settings.site_name | default: site.title }}</title>
     <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}">
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   </head>

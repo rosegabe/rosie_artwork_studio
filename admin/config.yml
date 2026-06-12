@@ -11,6 +11,33 @@ site_url: "https://sunny-seahorse-301815.netlify.app/"
 display_url: "https://sunny-seahorse-301815.netlify.app/"
 
 collections:
+  - name: "settings"
+    label: "Site Settings"
+    files:
+      - label: "Global Settings"
+        name: "global"
+        file: "_data/settings.yml"
+        fields:
+          - { label: "Site Name", name: "site_name", widget: "string" }
+          - { label: "Site Description", name: "site_description", widget: "text", required: false }
+          - label: "Header Links"
+            name: "header_links"
+            widget: "list"
+            summary: "{{fields.label}}"
+            fields:
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "URL", name: "url", widget: "string", hint: "Use /art/ for internal pages or a full https:// URL for external links." }
+          - { label: "Footer Text", name: "footer_text", widget: "string", required: false }
+          - label: "Footer Links"
+            name: "footer_links"
+            widget: "list"
+            required: false
+            summary: "{{fields.label}}"
+            fields:
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "URL", name: "url", widget: "string", hint: "Use mailto:email@example.com, /contact/, or a full https:// URL." }
+          - { label: "Show CMS Login Link", name: "show_cms_login", widget: "boolean", default: true }
+
   - name: "pages"
     label: "Pages"
     files:
@@ -20,9 +47,31 @@ collections:
         fields:
           - { label: "Layout", name: "layout", widget: "hidden", default: "home" }
           - { label: "Title", name: "title", widget: "hidden", default: "Home" }
+          - { label: "Eyebrow", name: "eyebrow", widget: "string", required: false }
           - { label: "Headline", name: "headline", widget: "string" }
           - { label: "Intro", name: "intro", widget: "text" }
           - { label: "Featured Image", name: "featured_image", widget: "image", required: false }
+          - { label: "Button Text", name: "button_text", widget: "string", required: false }
+          - { label: "Button URL", name: "button_url", widget: "string", required: false }
+          - { label: "Artwork Section Label", name: "art_section_label", widget: "string", required: false }
+          - { label: "Blog Section Label", name: "blog_section_label", widget: "string", required: false }
+      - label: "Art Page"
+        name: "art"
+        file: "art.md"
+        fields:
+          - { label: "Layout", name: "layout", widget: "hidden", default: "collection" }
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Permalink", name: "permalink", widget: "hidden", default: "/art/" }
+          - { label: "Collection Name", name: "collection_name", widget: "hidden", default: "artworks" }
+          - { label: "Intro", name: "intro", widget: "text", required: false }
+      - label: "Blog Page"
+        name: "blog"
+        file: "blog.md"
+        fields:
+          - { label: "Layout", name: "layout", widget: "hidden", default: "blog" }
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Permalink", name: "permalink", widget: "hidden", default: "/blog/" }
+          - { label: "Intro", name: "intro", widget: "text", required: false }
       - label: "About"
         name: "about"
         file: "about.md"
