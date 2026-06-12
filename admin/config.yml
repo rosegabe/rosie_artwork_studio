@@ -7,8 +7,8 @@ local_backend: true
 media_folder: "assets/uploads"
 public_folder: "assets/uploads"
 
-site_url: "https://YOUR-DOMAIN.com"
-display_url: "https://YOUR-DOMAIN.com"
+site_url: "https://sunny-seahorse-301815.netlify.app/"
+display_url: "https://sunny-seahorse-301815.netlify.app/"
 
 collections:
   - name: "pages"
