@@ -1,0 +1,29 @@
+title: "Artist Portfolio"
+description: "Artwork, notes, exhibitions, and studio writing."
+url: ""
+baseurl: ""
+timezone: Europe/Berlin
+
+collections:
+  artworks:
+    output: true
+    permalink: /art/:slug/
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+  - scope:
+      path: ""
+      type: artworks
+    values:
+      layout: artwork
+
+markdown: kramdown
+plugins:
+  - jekyll-feed
+
+exclude:
+  - README.md

@@ -1,0 +1,42 @@
+---
+layout: default
+---
+
+<section class="hero">
+  <div class="hero-copy">
+    <p class="eyebrow">Portfolio / Journal</p>
+    <h1>{{ page.headline }}</h1>
+    <p>{{ page.intro }}</p>
+  </div>
+  {% if page.featured_image %}
+    <img class="hero-image" src="{{ page.featured_image | relative_url }}" alt="">
+  {% endif %}
+</section>
+
+<section class="section-grid">
+  <div>
+    <p class="section-label">Recent Artwork</p>
+    <div class="art-grid compact">
+      {% assign recent_art = site.artworks | sort: "date" | reverse | slice: 0, 3 %}
+      {% for item in recent_art %}
+        <a class="art-card" href="{{ item.url | relative_url }}">
+          {% if item.image %}
+            <img src="{{ item.image | relative_url }}" alt="{{ item.title }}">
+          {% endif %}
+          <span>{{ item.title }}</span>
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+  <div>
+    <p class="section-label">Latest Writing</p>
+    <div class="post-list">
+      {% for post in site.posts limit: 3 %}
+        <a class="post-link" href="{{ post.url | relative_url }}">
+          <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%d %b %Y" }}</time>
+          <span>{{ post.title }}</span>
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>

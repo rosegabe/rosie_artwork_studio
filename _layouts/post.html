@@ -1,0 +1,15 @@
+---
+layout: default
+---
+
+<article class="page-shell narrow">
+  <a class="back-link" href="{{ '/blog/' | relative_url }}">Back to blog</a>
+  <h1>{{ page.title }}</h1>
+  <p class="meta">{{ page.date | date: "%d %B %Y" }}</p>
+  {% if page.image %}
+    <img class="feature-image" src="{{ page.image | relative_url }}" alt="{{ page.title }}">
+  {% endif %}
+  <div class="prose">
+    {{ content }}
+  </div>
+</article>

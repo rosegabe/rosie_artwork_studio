@@ -1,0 +1,19 @@
+---
+layout: default
+---
+
+<article class="page-shell narrow">
+  <a class="back-link" href="{{ '/art/' | relative_url }}">Back to art</a>
+  <h1>{{ page.title }}</h1>
+  <p class="meta">
+    {% if page.year %}{{ page.year }}{% endif %}
+    {% if page.medium %} / {{ page.medium }}{% endif %}
+    {% if page.dimensions %} / {{ page.dimensions }}{% endif %}
+  </p>
+  {% if page.image %}
+    <img class="feature-image" src="{{ page.image | relative_url }}" alt="{{ page.title }}">
+  {% endif %}
+  <div class="prose">
+    {{ content }}
+  </div>
+</article>
