@@ -2,7 +2,7 @@ backend:
   name: github
   repo: rosegabe/rosie_artwork_studio
   branch: main
-  base_url: https://rosie-artwork-studio-oauth.YOUR_WORKERS_SUBDOMAIN.workers.dev
+  base_url: https://rosie-artwork-studio-oauth.gabrieldimi96.workers.dev
   auth_endpoint: auth
   site_domain: rosegabe.github.io
 
