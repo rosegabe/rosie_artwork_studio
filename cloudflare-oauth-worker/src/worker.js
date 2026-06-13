@@ -29,14 +29,17 @@ export default {
     } catch (error) {
       return new Response(error.message || "OAuth worker error", {
         status: 500,
-        headers: corsHeaders(env),
+        headers: { "Content-Type": "text/plain;charset=UTF-8" },
       });
     }
   },
 };
 
 async function authorize(request, env) {
-  assertEnv(env, ["GITHUB_CLIENT_ID"]);
+  const missing = missingEnv(env, ["GITHUB_CLIENT_ID"]);
+  if (missing.length) {
+    return setupError(missing, env);
+  }
 
   const url = new URL(request.url);
   const state = randomState();
@@ -57,7 +60,10 @@ async function authorize(request, env) {
 }
 
 async function callback(request, env) {
-  assertEnv(env, ["GITHUB_CLIENT_ID", "GITHUB_CLIENT_SECRET"]);
+  const missing = missingEnv(env, ["GITHUB_CLIENT_ID", "GITHUB_CLIENT_SECRET"]);
+  if (missing.length) {
+    return setupError(missing, env);
+  }
 
   const url = new URL(request.url);
   const code = url.searchParams.get("code");
@@ -144,11 +150,21 @@ function renderAuthPage(status, content) {
 </html>`;
 }
 
-function assertEnv(env, keys) {
-  const missing = keys.filter((key) => !env[key]);
-  if (missing.length) {
-    throw new Error(`Missing Worker secret/env var: ${missing.join(", ")}`);
-  }
+function missingEnv(env, keys) {
+  return keys.filter((key) => !env[key]);
+}
+
+function setupError(missing, env) {
+  return new Response(
+    `Missing Cloudflare Worker secret/env var: ${missing.join(", ")}\n\nRun:\nwrangler secret put ${missing.join("\nwrangler secret put ")}\nwrangler deploy\n`,
+    {
+      status: 500,
+      headers: {
+        ...corsHeaders(env),
+        "Content-Type": "text/plain;charset=UTF-8",
+      },
+    },
+  );
 }
 
 function randomState() {
