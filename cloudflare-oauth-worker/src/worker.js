@@ -17,6 +17,10 @@ export default {
         });
       }
 
+      if (url.pathname === "/debug") {
+        return debug(env);
+      }
+
       if (url.pathname === "/auth") {
         return await authorize(request, env);
       }
@@ -165,6 +169,23 @@ function setupError(missing, env) {
       },
     },
   );
+}
+
+function debug(env) {
+  const payload = {
+    worker: "rosie-artwork-studio-oauth",
+    hasGithubClientId: Boolean(env.GITHUB_CLIENT_ID),
+    hasGithubClientSecret: Boolean(env.GITHUB_CLIENT_SECRET),
+    allowedOrigin: env.ALLOWED_ORIGIN || null,
+    oauthScope: env.GITHUB_OAUTH_SCOPE || null,
+  };
+
+  return new Response(JSON.stringify(payload, null, 2), {
+    headers: {
+      ...corsHeaders(env),
+      "Content-Type": "application/json;charset=UTF-8",
+    },
+  });
 }
 
 function randomState() {
