@@ -34,7 +34,7 @@ The CMS lives at:
 
 This starter uses Decap CMS with the GitHub backend. CMS users need push access to `rosegabe/rosie_artwork_studio`.
 
-GitHub requires a server-side OAuth flow for Decap CMS login. If the CMS login does not work directly, set up a Decap-compatible GitHub OAuth proxy and add its `base_url` to `admin/config.yml`.
+GitHub requires a server-side OAuth flow for Decap CMS login. This repository includes a Cloudflare Worker OAuth proxy setup in `cloudflare-oauth-worker`; see `CLOUDFLARE_WORKER_OAUTH.md`.
 
 ## Local preview
 

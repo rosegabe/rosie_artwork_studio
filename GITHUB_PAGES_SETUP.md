@@ -55,14 +55,18 @@ All CMS users must have push access to the GitHub repository.
 
 GitHub requires a server-side OAuth flow for Decap CMS authentication. If login does not work directly, set up a Decap-compatible GitHub OAuth proxy and add its `base_url` to `admin/config.yml`.
 
-Example:
+This repository includes a Cloudflare Worker OAuth proxy in `cloudflare-oauth-worker`. See `CLOUDFLARE_WORKER_OAUTH.md`.
+
+Config shape:
 
 ```yaml
 backend:
   name: github
   repo: rosegabe/rosie_artwork_studio
   branch: main
-  base_url: https://your-oauth-proxy.example.com
+  base_url: https://rosie-artwork-studio-oauth.YOUR_WORKERS_SUBDOMAIN.workers.dev
+  auth_endpoint: auth
+  site_domain: rosegabe.github.io
 ```
 
 ## Privacy Note

@@ -1,0 +1,7 @@
+name = "rosie-artwork-studio-oauth"
+main = "src/worker.js"
+compatibility_date = "2026-06-13"
+
+[vars]
+GITHUB_OAUTH_SCOPE = "repo"
+ALLOWED_ORIGIN = "https://rosegabe.github.io"
