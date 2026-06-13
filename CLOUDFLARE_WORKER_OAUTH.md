@@ -77,6 +77,23 @@ https://rosegabe.github.io/rosie_artwork_studio/admin/
 
 The CMS should redirect through the Worker instead of Netlify.
 
+## Troubleshooting Error 1101
+
+If Cloudflare shows `Error 1101 Worker threw exception` on `/auth`, redeploy the latest Worker code and confirm the secrets exist:
+
+```bash
+cd cloudflare-oauth-worker
+wrangler secret put GITHUB_CLIENT_ID
+wrangler secret put GITHUB_CLIENT_SECRET
+wrangler deploy
+```
+
+You can inspect live Worker errors with:
+
+```bash
+wrangler tail
+```
+
 ## Notes
 
 - The Worker uses the GitHub OAuth `repo` scope because Decap needs permission to write content back to the repository.

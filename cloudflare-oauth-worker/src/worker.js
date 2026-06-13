@@ -18,11 +18,11 @@ export default {
       }
 
       if (url.pathname === "/auth") {
-        return authorize(request, env);
+        return await authorize(request, env);
       }
 
       if (url.pathname === "/callback") {
-        return callback(request, env);
+        return await callback(request, env);
       }
 
       return new Response("Not found", { status: 404, headers: corsHeaders(env) });
