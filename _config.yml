@@ -1,7 +1,7 @@
-title: "Artist Portfolio"
+title: "Rosie Artwork Studio"
 description: "Artwork, notes, exhibitions, and studio writing."
-url: ""
-baseurl: ""
+url: "https://rosegabe.github.io"
+baseurl: "/rosie_artwork_studio"
 timezone: Europe/Berlin
 
 collections:
@@ -27,3 +27,4 @@ plugins:
 
 exclude:
   - README.md
+  - GITHUB_PAGES_SETUP.md

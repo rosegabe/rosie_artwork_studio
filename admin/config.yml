@@ -1,5 +1,6 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: rosegabe/rosie_artwork_studio
   branch: main
 
 local_backend: true
@@ -7,8 +8,8 @@ local_backend: true
 media_folder: "assets/uploads"
 public_folder: "assets/uploads"
 
-site_url: "https://sunny-seahorse-301815.netlify.app/"
-display_url: "https://sunny-seahorse-301815.netlify.app/"
+site_url: "https://rosegabe.github.io/rosie_artwork_studio/"
+display_url: "https://rosegabe.github.io/rosie_artwork_studio/"
 
 collections:
   - name: "settings"

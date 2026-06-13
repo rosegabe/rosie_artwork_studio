@@ -1,8 +1,6 @@
-# Private Artist Portfolio CMS Site
+# Rosie Artwork Studio
 
-This is a private-source Jekyll site for an artist portfolio and blog. The public website can be visible, but the repository and CMS workflow should stay private.
-
-Important: no public website can fully hide the HTML/CSS/JavaScript that is sent to a visitor's browser. What you can hide is the source repository, content workflow, draft posts, CMS access, and build system.
+This is a GitHub Pages-ready Jekyll site for an artist portfolio and blog.
 
 ## What is included
 
@@ -12,37 +10,31 @@ Important: no public website can fully hide the HTML/CSS/JavaScript that is sent
 - Uploaded artwork and blog images stored in `assets/uploads`
 - Sample artwork and blog post so the layout works immediately
 
-## Recommended Setup
+## GitHub Pages Setup
 
-Best practical option:
+This project is configured for:
 
-1. Put this folder in a private Git repository.
-2. Deploy it with Netlify.
-3. Keep the repository private.
-4. Enable Netlify Identity and Git Gateway for CMS login.
-5. Point your custom domain to the host.
+```text
+https://rosegabe.github.io/rosie_artwork_studio/
+```
 
-For the simplest artist workflow, use Netlify or CloudCannon:
+Use:
 
-- Netlify: best for this exact starter because Decap CMS can use Git Gateway.
-- CloudCannon: good if you want a more visual CMS/editor for a Jekyll site.
-- Squarespace: good if you want no code workflow at all, but you will not own this custom codebase.
+```text
+Settings > Pages > Deploy from a branch > main > /root
+```
 
-See `NETLIFY_SETUP.md` for the exact Netlify setup.
+See `GITHUB_PAGES_SETUP.md` for the full setup.
 
 ## CMS login
 
 The CMS lives at:
 
-`https://YOUR-DOMAIN.com/admin/`
+`https://rosegabe.github.io/rosie_artwork_studio/admin/`
 
-This starter uses Decap CMS with Netlify Git Gateway. Once Netlify Identity and Git Gateway are enabled, edits from `/admin/` are committed to the private repository and the site rebuilds.
+This starter uses Decap CMS with the GitHub backend. CMS users need push access to `rosegabe/rosie_artwork_studio`.
 
-In `admin/config.yml`, replace the default Netlify preview domain later if you add a custom domain:
-
-`https://YOUR-DOMAIN.com`
-
-The current value is `https://sunny-seahorse-301815.netlify.app/`.
+GitHub requires a server-side OAuth flow for Decap CMS login. If the CMS login does not work directly, set up a Decap-compatible GitHub OAuth proxy and add its `base_url` to `admin/config.yml`.
 
 ## Local preview
 
